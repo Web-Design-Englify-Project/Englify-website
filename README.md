@@ -37,12 +37,13 @@ scss/style.scss   Sass entry file: only @use lines
 scss/_variables.scss   colors and breakpoints
 scss/_tokens.scss      turns the variables into CSS custom properties
 scss/_base.scss, _layout.scss, _header.scss, _components.scss, _footer.scss, _responsive.scss   shared styles
+scss/_motion.scss      all animation and smoothness (easing, fade-ins, menu, feedback); loads last
 scss/_home.scss        home page
 scss/_courses.scss     courses, course and lesson pages
 scss/_exercises.scss   questions, answer feedback, score box
 scss/_progress.scss    progress page
 scss/_forms.scss       login, sign up, about (FAQ, contact, team)
-js/englify.js     the only JavaScript (about 85 lines)
+js/englify.js     the only JavaScript (about 130 lines), loaded on every page
 assets/           logo and favicon
 ```
 
@@ -63,7 +64,11 @@ Change colors in `scss/_variables.scss`.
 - Multiple-choice answers, the green/red feedback, the explanations, the mobile menu, the FAQ and the contact
   "thank you" message all work with HTML and CSS only.
 - `js/englify.js` does five small jobs: play audio (browser text-to-speech), check typed answers, show the
-  score, save the best score in the browser (`localStorage`), and fill the Progress page.
+  score, save the best score in the browser (`localStorage`), and fill the Progress page. It also does two
+  polish jobs: a soft shadow under the header once you scroll, and a gentle fade-in for blocks below the fold.
+- All animations are CSS (`scss/_motion.scss`). Speeds and curves are the `--ease-*` and `--t-*` values in
+  `scss/_tokens.scss`: change them there to make the whole site faster or slower. Visitors who turn on
+  "reduce motion" in their device settings get no animation at all.
 
 ## Good to know
 
